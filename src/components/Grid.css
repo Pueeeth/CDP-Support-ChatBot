@@ -1,0 +1,108 @@
+/* Center the table inside the container */
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Main table styling */
+.grid-table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    table-layout: fixed; /* Ensures equal column width */
+}
+
+/* Column headers */
+.grid-table thead th, 
+.grid-table tbody th {
+    background-color: #f3f3f3;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Table cells */
+.grid-cell {
+    border: 1px solid #d1d1d1;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+/* Input field inside the cell */
+.grid-cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    background: transparent;
+    cursor: text;
+}
+
+/* Active cell highlight */
+.grid-cell input:focus,
+.grid-cell.active {
+    background-color: #eef2ff;
+    border: 1px solid #0078d7;
+}
+
+/* Scrollable container for large grids */
+.grid-wrapper {
+    max-height: 500px;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+
+/* Smooth scrolling */
+.grid-wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.grid-wrapper::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+}
+
+.grid-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Add Row & Column Buttons */
+.add-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-btn:hover {
+    background-color: #45a049;
+}
+
+/* Delete Buttons */
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
