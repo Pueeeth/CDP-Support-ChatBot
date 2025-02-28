@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# 📌 CDP Support Chatbot  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📝 Project Overview  
 
-## Available Scripts
+The **CDP Support Chatbot** is an intelligent assistant designed to answer **"how-to"** queries related to **Customer Data Platforms (CDPs)**:  
+- **Segment**  
+- **mParticle**  
+- **Lytics**  
+- **Zeotap**  
 
-In the project directory, you can run:
+### ✅ Features:  
+- **Real-time search** across CDP documentation  
+- **Web scraping** to fetch the latest documentation  
+- **Integration support** for multiple CDPs  
+- **Comparison queries** between different CDPs  
+- **Automatic documentation updates** every 24 hours  
 
-### `npm start`
+This chatbot uses **Flask** for the backend and **React** for the frontend, integrating **Selenium, BeautifulSoup, and RapidFuzz** for efficient searching.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technology Stack  
 
-### `npm test`
+| Component  | Tech Used |
+|------------|----------|
+| **Backend**  | Flask (Python) |
+| **Frontend** | React (JavaScript) |
+| **Database** | JSON-based storage |
+| **Web Scraping** | BeautifulSoup, Selenium |
+| **Search Optimization** | RapidFuzz |
+| **Task Scheduling** | Python `schedule` library |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Getting Started  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1️⃣ **Clone the Repository**  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+git clone https://github.com/company-repo/cdp-support-chatbot.git
+cd cdp-support-chatbot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔧 Backend Setup (Flask API)
+📌 Install Dependencies
 
-### `npm run eject`
+pip install -r requirements.txt
+📌 Run the Flask Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+python app.py
+This starts the API at http://127.0.0.1:5000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🎨 Frontend Setup (React UI)
+📌 Navigate to the Frontend Folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd frontend
+📌 Install Dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm install
+📌 Start the Frontend
 
-## Learn More
+npm start
+The chatbot UI will be running at http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔄 Documentation Scraper
+The chatbot fetches documentation using scraper.py and updates it every 24 hours.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📌 Manually Update Documentation
 
-### Code Splitting
+python scraper.py
+📌 Run the Scheduler for Automatic Updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+python scheduler.py
+⚡ API Endpoints
+Method	Endpoint	Description
+GET	/search?query=<your-query>	Search for answers related to CDPs
+GET	/	Load the chatbot UI
+Example API Request:
 
-### Analyzing the Bundle Size
+curl "http://127.0.0.1:5000/search?query=How to integrate Segment with Zeotap?"
+📜 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cdp-support-chatbot/
+│── backend/              # Flask backend
+│   ├── app.py            # Main Flask app
+│   ├── search.py         # Search logic & processing
+│   ├── scraper.py        # Web scraping logic
+│   ├── scheduler.py      # Automatic updates
+│   ├── requirements.txt  # Python dependencies
+│── frontend/             # React frontend
+│   ├── src/              # React source files
+│   ├── public/           # Static assets
+│   ├── package.json      # React dependencies
+│── data/                 # Scraped documentation storage
+│── README.md             # Project documentation
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔥 How the Chatbot Works
+User enters a query (e.g., "How to integrate Segment with Zeotap?").
+Search logic identifies whether the query is about comparison, integration, or general information.
+Documentation is fetched from official CDP sources using web scraping.
+Relevant results are extracted using RapidFuzz for better search matching.
+Response is displayed to the user.
